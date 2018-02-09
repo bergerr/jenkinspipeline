@@ -14,7 +14,8 @@ stages{
         stage('Build'){
             steps {
                 sh '''export PATH=$PATH:/usr/local/Cellar/maven/3.5.2
-                    echo $PATH'''
+                    echo $PATH
+                    mvn -v'''
             }
             // post {
             //     success {
