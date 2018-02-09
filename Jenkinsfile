@@ -13,7 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh '''export PATH=$PATH:/usr/local/Cellar/maven/3.5.2/libexec
+                sh '''export PATH=$PATH:/usr/local/Cellar/maven/3.5.2/bin
                     echo $PATH
                     mvn -v'''
             }
