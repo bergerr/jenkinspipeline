@@ -11,14 +11,11 @@ pipeline {
     //  }
 
     stages{
-        stage('Init'){
-            steps {
-                sh 'export PATH=$PATH:/usr/local/Cellar/maven/3.5.2/bin'
-            }
-        }
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                sh '''export PATH=$PATH:/usr/local/Cellar/maven/3.5.2/bin
+                    mvn clean package
+                    '''
             }
             post {
                 success {
