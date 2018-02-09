@@ -10,19 +10,19 @@ pipeline {
     //      pollSCM('* * * * *') // Polling Source Control
     //  }
 
-stages{
+    stages{
         stage('Build'){
             steps {
                 sh '''export PATH=$PATH:/usr/local/Cellar/maven/3.5.2/bin
                     mvn clean package
                     '''
             }
-            // post {
-            //     success {
-            //         echo 'Now Archiving...'
-            //         archiveArtifacts artifacts: '**/target/*.war'
-            //     }
-            // }
+            post {
+                success {
+                    echo 'Now Archiving...'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
         }
 
         // stage ('Deployments'){
